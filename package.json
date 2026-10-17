@@ -1,0 +1,15 @@
+{
+  "name": "toa-skill",
+  "version": "0.1.1",
+  "description": "Donate your unused AI plan usage to curated open source projects: installs the TOA agent skill for Claude Code, Codex, Cursor, Gemini CLI and more, and spends leftover usage before your weekly reset.",
+  "type": "module",
+  "bin": { "toa-skill": "bin/toa-skill.mjs" },
+  "files": ["bin", "lib", "skill", "README.md", "LICENSE"],
+  "engines": { "node": ">=18.17" },
+  "dependencies": { "@clack/prompts": "^1.8.1" },
+  "keywords": ["agent-skills", "claude-code", "codex", "cursor", "open-source", "donate", "skills"],
+  "license": "MIT",
+  "homepage": "https://donatetokens.org",
+  "repository": { "type": "git", "url": "git+https://github.com/Gillinghammer/toa.git" },
+  "bugs": { "url": "https://github.com/Gillinghammer/toa/issues" }
+}

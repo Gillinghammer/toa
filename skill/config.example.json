@@ -1,0 +1,19 @@
+{
+  "host": "{{TOA_HOST}}",
+  "causes": ["health", "education"],
+  "languages": ["Python", "TypeScript"],
+  "projects": ["open-library"],
+  "exclude_projects": [],
+  "pick": "auto",
+  "submit": "auto",
+  "window_hours": 24,
+  "stop_at_percent": 98,
+  "max_runs_per_window": 8,
+  "run_timeout_minutes": 90,
+  "workdir": "~/.toa/work",
+  "agents": [
+    { "name": "claude-code", "agent": "claude-code", "enabled": true, "run": true, "env": {}, "usage": { "source": "auto", "reset": { "weekday": "thu", "time": "09:00" } }, "oauth_usage": false },
+    { "name": "claude-work", "agent": "claude-code", "enabled": true, "run": true, "env": { "CLAUDE_CONFIG_DIR": "~/.claude-work" }, "usage": { "source": "auto", "reset": null } },
+    { "name": "codex", "agent": "codex", "enabled": true, "run": true, "env": {}, "usage": { "source": "auto", "reset": { "weekday": "mon", "time": "12:00" } } }
+  ]
+}
