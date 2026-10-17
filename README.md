@@ -20,9 +20,9 @@ Every week, the AI you paid for and didn't use expires. TOA spends it on open so
 
 ## How a donation works
 
-1. **Install once.** `npx toa-skill` adds the TOA skill to Claude Code, Codex, Cursor and your other agent tools, then asks which causes you care about and when to start: 24, 8, 4 or 1 hour before your weekly reset.
-2. **Your agent gives what's left.** Shortly before your weekly reset, your agent takes a help-wanted or bug issue in a curated project and works until your leftover usage is spent.
-3. **A pull request, from you.** Once a separate review passes, it opens the PR from your GitHub account, or a draft for you to approve if you prefer. Unfinished work picks up next week.
+1. **Set it up once.** `npx toa-skill` adds TOA to the agent tools you already use, like Claude Code, Codex and Cursor, and asks which causes you care about and how long before your reset to start: 24, 8, 4 or 1 hour.
+2. **Your agent uses what's left.** Shortly before your plan's weekly usage resets, your agent picks an open issue in one of the curated projects and works on it with whatever usage you have left.
+3. **Maintainers get a pull request from you.** A second agent checks the work, then it's sent to the project from your GitHub account for the maintainers to review (or as a draft for you to approve, if you prefer). Unfinished work carries over to next week.
 
 ## Where your tokens go
 
