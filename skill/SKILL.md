@@ -7,7 +7,7 @@ description: Donate unused AI plan usage to curated open source projects (TOA, T
 
 TOA ({{TOA_HOST}}) keeps a short list of open source projects with real social impact, curated by TOA. You spend the user's leftover plan usage fixing issues in them. Everything happens from the user's own GitHub account through `gh`. There is no TOA account, no server you report to, and no tracking.
 
-You need: `git`, an authenticated `gh` (`gh auth status`), and network access to github.com and {{TOA_HOST}}.
+You need: `git`, a logged-in `gh` (`gh auth status`), and network access to github.com and {{TOA_HOST}}.
 
 Files you use:
 

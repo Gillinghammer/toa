@@ -1,6 +1,6 @@
 {
   "name": "toa-skill",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Donate your unused AI plan usage to curated open source projects: installs the TOA agent skill for Claude Code, Codex, Cursor, Gemini CLI and more, and spends leftover usage before your weekly reset.",
   "type": "module",
   "bin": { "toa": "bin/toa-skill.mjs", "toa-skill": "bin/toa-skill.mjs" },

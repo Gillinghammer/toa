@@ -32,7 +32,8 @@ Every PR made through TOA says "via TOA" in its AI disclosure and ends with a ro
 
 ## Works with
 
-Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot CLI, OpenCode and Amp, including scheduled runs before your reset. Windsurf, Cline and Roo Code get the skill for interactive use.
+- **Scheduled runs before your reset:** Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot CLI, OpenCode and Amp. `npx toa-skill` sets these up.
+- **The skill, for when you ask your agent to "work on TOA":** Windsurf, Cline and Roo Code through `npx toa-skill`, and Devin, Grok and many other agents through `npx skills add Gillinghammer/toa`.
 
 ## Good to know
 
