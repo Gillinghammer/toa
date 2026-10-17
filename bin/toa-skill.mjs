@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// toa-skill: install the TOA agent skill and spend unused AI plan usage on curated open source projects.
+// toa (npm package toa-skill): install the TOA agent skill and spend unused AI plan usage on curated open source projects.
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -29,9 +29,9 @@ const json = !!flags.json;
 const out = (o) => console.log(JSON.stringify(o, null, 2));
 const fmtTime = (ms) => (ms ? new Date(ms).toLocaleString(undefined, { weekday: 'short', hour: 'numeric', minute: '2-digit', month: 'short', day: 'numeric' }) : 'unknown');
 
-const HELP = `toa-skill ${PKG.version}: donate your unused AI plan usage to curated open source projects.
+const HELP = `toa ${PKG.version}: donate your unused AI plan usage to curated open source projects.
 
-Usage: npx toa-skill [command] [--dry-run]
+Usage: toa [command] [--dry-run]     (or npx toa-skill [command], or ~/.toa/bin/toa after setup)
 
   (no command)     Interactive setup: detect tools, install the skill, preferences, window, scheduler
   detect           Show which agent tools are installed and where the skill goes
@@ -254,4 +254,4 @@ async function main() {
   process.exit(2);
 }
 
-main().catch((e) => { console.error(`toa-skill: ${e.message}`); process.exit(1); });
+main().catch((e) => { console.error(`toa: ${e.message}`); process.exit(1); });

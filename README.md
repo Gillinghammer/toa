@@ -48,15 +48,15 @@ Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot CLI, OpenCode and Amp, in
 | Command | What it does |
 |---|---|
 | `npx toa-skill` | Interactive setup: find your agent tools, install the skill, pick causes and a window, set up the hourly check |
-| `toa-skill check` | Is a subscription inside its window with usage left? |
-| `toa-skill run` | Launch due agents headless until usage is spent (`--dry-run` to preview) |
-| `toa-skill pick` | Suggest a project and open issues for your preferences |
-| `toa-skill history` | The PRs you've opened through TOA and the tokens donated |
-| `toa-skill status` | Config, task in progress, last runs |
-| `toa-skill schedule` | Install the hourly check (launchd, cron or Task Scheduler); `--remove` to take it out |
-| `toa-skill uninstall` | Remove the skill links and the hourly check (`--purge` also removes `~/.toa`) |
+| `toa check` | Is a subscription inside its window with usage left? |
+| `toa run` | Launch due agents headless until usage is spent (`--dry-run` to preview) |
+| `toa pick` | Suggest a project and open issues for your preferences |
+| `toa history` | The PRs you've opened through TOA and the tokens donated |
+| `toa status` | Config, task in progress, last runs |
+| `toa schedule` | Install the hourly check (launchd, cron or Task Scheduler); `--remove` to take it out |
+| `toa uninstall` | Remove the skill links and the hourly check (`--purge` also removes `~/.toa`) |
 
-After setup, the launcher lives at `~/.toa/bin/toa-skill`. Files: `~/.toa/config.json` (preferences), `~/.toa/state.json` (the task in progress, so the next window resumes it), `~/.toa/skill`, `~/.toa/logs`.
+After setup the command is `~/.toa/bin/toa`. To type just `toa`, add `~/.toa/bin` to your `PATH` or run `npm i -g toa-skill`; `npx toa-skill <command>` works anywhere. Files: `~/.toa/config.json` (preferences), `~/.toa/state.json` (the task in progress, so the next window resumes it), `~/.toa/skill`, `~/.toa/logs`.
 
 ## For maintainers
 

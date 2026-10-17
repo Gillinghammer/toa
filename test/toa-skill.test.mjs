@@ -46,7 +46,8 @@ test('install: one canonical copy, symlinked per agent, shared folders deduped, 
   assert.ok(lstatSync(join(home, '.claude', 'skills', 'toa')).isSymbolicLink());
   assert.equal(readlinkSync(join(home, '.agents', 'skills', 'toa')), canon);
   assert.ok(existsSync(join(home, '.toa', 'runtime', 'bin', 'toa-skill.mjs')));
-  assert.match(readFileSync(join(home, '.toa', 'bin', 'toa-skill'), 'utf8'), /runtime\/bin\/toa-skill\.mjs/);
+  assert.match(readFileSync(join(home, '.toa', 'bin', 'toa'), 'utf8'), /runtime\/bin\/toa-skill\.mjs/, 'toa is the command');
+  assert.match(readFileSync(join(home, '.toa', 'bin', 'toa-skill'), 'utf8'), /runtime\/bin\/toa-skill\.mjs/, 'toa-skill stays as an alias');
   // A user's own folder of the same name is left alone.
   mkdirSync(join(home, '.cursor', 'skills', 'toa'), { recursive: true });
   const r = applyInstall(planInstall(['cursor'], { env }).filter((s) => s.agent));
@@ -64,7 +65,7 @@ test('Claude status line hook chains the existing command and records rate limit
   const plan = applyStatusline(planStatusline('claude-code', {}, { env }));
   const s = JSON.parse(readFileSync(plan.path, 'utf8'));
   assert.equal(s.model, 'x');
-  assert.match(s.statusLine.command, /toa-skill statusline --name claude-code --chain "my-line"/);
+  assert.match(s.statusLine.command, /\/bin\/toa statusline --name claude-code --chain "my-line"/);
   assert.ok(existsSync(`${plan.path}.toa-backup`));
   assert.ok(planStatusline('claude-code', {}, { env }).already);
   const now = Date.parse('2026-10-17T12:00:00Z');

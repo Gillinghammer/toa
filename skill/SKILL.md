@@ -16,7 +16,7 @@ Files you use:
 | `{{TOA_HOST}}/projects.json` | The curated list: each project's repo, causes, automation level, claim rule, disclosure, eligible labels |
 | `~/.toa/config.json` | The user's preferences: `causes`, `languages`, `projects` (favourites first), `exclude_projects`, `pick` (`auto` or `ask`), `submit` (`auto` or `ask`), `window_hours`, `workdir` |
 | `~/.toa/state.json` | Your memory between sessions. Read it first, write it often (format below) |
-| `~/.toa/bin/toa-skill` | Optional helper: `pick --json` suggests a project and open issues; `check` shows whether a scheduled run is due |
+| `~/.toa/bin/toa` | Optional helper: `pick --json` suggests a project and open issues; `check` shows whether a scheduled run is due |
 
 If `~/.toa/config.json` is missing, use defaults (any cause, any language, auto-pick, autonomous submit) and suggest `npx toa-skill` afterwards.
 
@@ -43,7 +43,7 @@ Read `~/.toa/state.json`.
 
 ## 2. Pick a project and an issue
 
-1. Fetch `{{TOA_HOST}}/projects.json` (or run `~/.toa/bin/toa-skill pick --json`).
+1. Fetch `{{TOA_HOST}}/projects.json` (or run `~/.toa/bin/toa pick --json`).
 2. If the user named a project, use it. Otherwise prefer `config.projects` in order, then projects whose `causes` overlap `config.causes` and whose `language` is in `config.languages`. Skip `exclude_projects`.
 3. Find candidate issues, newest activity first:
    ```bash
@@ -60,7 +60,7 @@ Read `~/.toa/state.json`.
    - it carries a not-ready label, such as `Needs: Lead`, `Needs: Triage`, `needs discussion`, `needs design`, `needs decision`, `blocked`, `on hold`, `question`, or `in progress`;
    - a maintainer said they want to do it themselves, the design is still undecided, or they sounded lukewarm about the change ("I'm reluctant to add…", "only if someone needs it");
    - maintainers have signalled they don't want coding agents on it, such as removing an easy label as "bait for coding agents", or a label like `ai-generated` used for unwanted PRs. Skip the issue, and skip the project if that's its general stance (note it under **Flags**).
-   (`toa-skill pick` already drops not-ready labels; the comment check is yours to do.)
+   (`toa pick` already drops not-ready labels; the comment check is yours to do.)
 5. Choose an issue an agent can finish in one or two sessions: clear expected behaviour, reproducible, small surface. Read the **whole thread**. Prefer projects whose `claim.rule` is `open` (CONTRIBUTING allows a PR without prior assignment), so the work can land in one run.
 6. `config.pick == "ask"` and you're in an interactive session → show the user the top 3 (project, issue, why) and let them choose. In scheduled mode (`TOA_SCHEDULED=1`), always pick yourself.
 
