@@ -5,15 +5,15 @@ description: Donate unused AI plan usage to curated open source projects (TOA, T
 
 # TOA: donate your spare tokens to open source
 
-TOA ({{TOA_HOST}}) keeps a short list of open source projects with real social impact, curated by TOA. You spend the user's leftover plan usage fixing issues in them. Everything happens from the user's own GitHub account through `gh`. There is no TOA account, no server you report to, and no tracking.
+TOA (https://donatetokens.org) keeps a short list of open source projects with real social impact, curated by TOA. You spend the user's leftover plan usage fixing issues in them. Everything happens from the user's own GitHub account through `gh`. There is no TOA account, no server you report to, and no tracking.
 
-You need: `git`, a logged-in `gh` (`gh auth status`), and network access to github.com and {{TOA_HOST}}.
+You need: `git`, a logged-in `gh` (`gh auth status`), and network access to github.com and https://donatetokens.org.
 
 Files you use:
 
 | Path | What it is |
 |---|---|
-| `{{TOA_HOST}}/projects.json` | The curated list: each project's repo, causes, automation level, claim rule, disclosure, eligible labels |
+| `https://donatetokens.org/projects.json` | The curated list: each project's repo, causes, automation level, claim rule, disclosure, eligible labels |
 | `~/.toa/config.json` | The user's preferences: `causes`, `languages`, `projects` (favourites first), `exclude_projects`, `pick` (`auto` or `ask`), `submit` (`auto` or `ask`), `window_hours`, `workdir` |
 | `~/.toa/state.json` | Your memory between sessions. Read it first, write it often (format below) |
 | `~/.toa/bin/toa` | Optional helper: `pick --json` suggests a project and open issues; `check` shows whether a scheduled run is due |
@@ -43,7 +43,7 @@ Read `~/.toa/state.json`.
 
 ## 2. Pick a project and an issue
 
-1. Fetch `{{TOA_HOST}}/projects.json` (or run `~/.toa/bin/toa pick --json`).
+1. Fetch `https://donatetokens.org/projects.json` (or run `~/.toa/bin/toa pick --json`).
 2. If the user named a project, use it. Otherwise prefer `config.projects` in order, then projects whose `causes` overlap `config.causes` and whose `language` is in `config.languages`. Skip `exclude_projects`.
 3. Find candidate issues, newest activity first:
    ```bash

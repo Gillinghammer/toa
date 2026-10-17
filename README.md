@@ -65,6 +65,6 @@ Want your project listed? Follow and DM [@Gillinghammer on X](https://x.com/Gill
 
 ## This repository
 
-The source of the [`toa-skill`](https://www.npmjs.com/package/toa-skill) npm package (`bin/`, `lib/`, `skill/`, `test/`) and a ready-to-install copy of the skill in [`skills/toa`](skills/toa/SKILL.md) for `npx skills add`. Run the tests with `node --test test/*.test.mjs`. The website and the curated list live at [donatetokens.org](https://donatetokens.org).
+The source of the [`toa-skill`](https://www.npmjs.com/package/toa-skill) npm package (`bin/`, `lib/`, `skill/`, `test/`). The skill itself is [`skill/SKILL.md`](skill/SKILL.md), which is what `npx skills add Gillinghammer/toa` installs. Run the tests with `node --test test/*.test.mjs`. The website and the curated list live at [donatetokens.org](https://donatetokens.org).
 
 MIT licensed. Not affiliated with Anthropic, OpenAI or GitHub.

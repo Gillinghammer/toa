@@ -1,5 +1,5 @@
 {
-  "host": "{{TOA_HOST}}",
+  "host": "https://donatetokens.org",
   "causes": ["health", "education"],
   "languages": ["Python", "TypeScript"],
   "projects": ["open-library"],
