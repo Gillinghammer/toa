@@ -26,7 +26,7 @@ Every week, the AI you paid for and didn't use expires. TOA spends it on open so
 
 ## Where your tokens go
 
-A curated list of open source projects in health, education, climate, accessibility, open knowledge and financial inclusion, such as Open Library, OpenEMR, Kiwix, axe-core and the Wikimedia Commons app. Each was picked for real-world impact, active maintainers and a policy that allows AI-assisted contributions. See them at [donatetokens.org](https://donatetokens.org/#projects) (or [/projects.json](https://donatetokens.org/projects.json)).
+A curated list of open source projects in health, education, climate, accessibility, open knowledge and financial inclusion, such as Open Library, OpenEMR, Kiwix, axe-core and Organic Maps. Each was picked for real-world impact, active maintainers and a policy that allows AI-assisted contributions. See them at [donatetokens.org](https://donatetokens.org/#projects) (or [/projects.json](https://donatetokens.org/projects.json)).
 
 Every PR made through TOA says "via TOA" in its AI disclosure and ends with a rough count of the tokens it took. You can see them all, and the running total, at [donatetokens.org/contributions](https://donatetokens.org/contributions).
 
