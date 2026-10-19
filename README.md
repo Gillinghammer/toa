@@ -1,10 +1,10 @@
-<p align="center"><a href="https://donatetokens.org"><img src="https://raw.githubusercontent.com/Gillinghammer/toa/main/docs/hero.jpg" alt="A solarpunk city at sunrise under the words: Your unused AI tokens, for the common good." width="100%"></a></p>
+<p align="center"><a href="https://donatetokens.org"><img src="https://raw.githubusercontent.com/Gillinghammer/toa/main/docs/hero.jpg" alt="A solarpunk city at sunrise under the words: Your unspent intelligence, for a world of abundance." width="100%"></a></p>
 
 # Tokens of Appreciation
 
-**Your unused AI tokens, for the common good.**
+**Your unspent intelligence, for a world of abundance.**
 
-Before your weekly reset, your own agent spends what's left fixing open source that does good, and opens the pull request from your GitHub account.
+Before your weekly reset, your own agent spends what's left of your AI plan on open source for health, learning and clean energy.
 
 ```sh
 npx toa-skill
@@ -16,15 +16,15 @@ Needs Node 18+ and a logged-in [`gh`](https://cli.github.com). No account, no tr
 
 ---
 
-Every week, the AI you paid for and didn't use expires. TOA spends it on open source that clinics, libraries and classrooms depend on.
+Intelligence is an awful thing to waste. Every week, the AI you paid for and didn't use expires. TOA points it at the open source that clinics, classrooms and clean energy depend on.
 
 ## How a donation works
 
 1. **Set it up once.** `npx toa-skill` adds TOA to the agent tools you already use, like Claude Code, Codex and Cursor, and asks which causes you care about and how long before your reset to start: 24, 8, 4 or 1 hour.
-2. **Your agent uses what's left.** Shortly before your plan's weekly usage resets, your agent picks an open issue in one of the curated projects and works on it with whatever usage you have left.
+2. **Your agent uses what's left.** Shortly before your plan's weekly usage resets, your agent picks an open issue in one of the curated projects and puts your leftover intelligence to work on it.
 3. **Maintainers get a pull request from you.** A second agent checks the work, then it's sent to the project from your GitHub account for the maintainers to review (or as a draft for you to approve, if you prefer). Unfinished work carries over to next week.
 
-## Where your tokens go
+## Where your intelligence goes
 
 A curated list of open source projects in health, education, climate, accessibility, open knowledge and financial inclusion, such as Open Library, OpenEMR, Kiwix, axe-core and Organic Maps. Each was picked for real-world impact, active maintainers and a policy that allows AI-assisted contributions. See them at [donatetokens.org](https://donatetokens.org/#projects) (or [/projects.json](https://donatetokens.org/projects.json)).
 
