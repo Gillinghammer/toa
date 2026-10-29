@@ -169,3 +169,10 @@ test('rankProjects: favourites first, then causes and languages', () => {
   assert.equal(rankProjects(list, { projects: ['a'], causes: ['health'] })[0].slug, 'a');
   assert.ok(!rankProjects(list, { exclude_projects: ['b'] }).some((p) => p.slug === 'b'));
 });
+
+test('rankProjects: projects that require a human review only for donors who review PRs', () => {
+  const list = { projects: [{ slug: 'a', automation: 'autonomous' }, { slug: 'b', automation: 'donor-signoff' }, { slug: 'c' }] };
+  assert.deepEqual(rankProjects(list, {}).map((p) => p.slug).sort(), ['a', 'c']);
+  assert.deepEqual(rankProjects(list, { submit: 'auto', projects: ['b'] }).map((p) => p.slug).sort(), ['a', 'c']);
+  assert.deepEqual(rankProjects(list, { submit: 'ask' }).map((p) => p.slug).sort(), ['a', 'b', 'c']);
+});

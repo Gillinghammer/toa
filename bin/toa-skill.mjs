@@ -91,16 +91,17 @@ async function setup() {
   if (skipped.length) p.log.warn(skipped.map((d) => d.skipped).join('\n'));
 
   const { list, causes } = await loadCauses(cfg.host);
+  cfg.submit = cancel(await p.select({ message: 'Submitting work upstream:', initialValue: cfg.submit === 'ask' ? 'ask' : 'auto', options: [
+    { value: 'auto', label: 'Fully autonomous (default)', hint: 'the agent claims issues and opens ready-for-review PRs itself, on projects that allow it' },
+    { value: 'ask', label: 'I\'ll review each PR first', hint: 'PRs open as drafts you check and mark ready; adds projects that require a human review' }] }));
+  const needReview = list ? list.projects.filter((x) => x.automation === 'donor-signoff').length : 0;
+  if (cfg.submit === 'auto' && needReview) p.log.info(`${needReview} projects require a human review of every PR, so they're skipped. Choose "I'll review each PR first" to include them.`);
   cfg.causes = cancel(await p.multiselect({ message: 'Causes you care about (none = any):', options: causes.map((c) => ({ value: c, label: c.replace(/-/g, ' ') })), initialValues: cfg.causes, required: false }));
   const langs = list ? [...new Set(list.projects.map((x) => x.language).filter(Boolean))].sort() : [];
   if (langs.length) cfg.languages = cancel(await p.multiselect({ message: 'Languages (none = any):', options: langs.map((l) => ({ value: l, label: l })), initialValues: cfg.languages, required: false }));
   if (list) cfg.projects = cancel(await p.multiselect({ message: 'Favourite projects, tried first (optional):', options: rankProjects(list, cfg).map((x) => ({ value: x.slug, label: x.name, hint: (x.causes || []).join(', ') })), initialValues: cfg.projects, required: false }));
   cfg.pick = cancel(await p.select({ message: 'Choosing the project and issue:', options: [{ value: 'auto', label: 'Let the agent pick', hint: 'best for scheduled runs' }, { value: 'ask', label: 'Ask me first', hint: 'in interactive sessions' }], initialValue: cfg.pick }));
 
-  cfg.submit = cancel(await p.select({ message: 'Submitting work upstream:', initialValue: cfg.submit === 'ask' ? 'ask' : 'auto', options: [
-    { value: 'auto', label: 'Fully autonomous (default)', hint: 'the agent posts claim comments and opens ready-for-review PRs itself' },
-    { value: 'ask', label: 'Ask me before submitting', hint: 'claim comments wait for you; PRs open as drafts for your sign-off' }] }));
-  if (cfg.submit === 'auto') p.log.info('Projects whose own rules require a human review still get your sign-off first (shown as "Your sign-off" on donatetokens.org).');
 
   const win = cancel(await p.select({ message: 'Start spending how long before your weekly reset?', initialValue: WINDOWS.includes(cfg.window_hours) ? cfg.window_hours : 'custom',
     options: [...WINDOWS.map((h) => ({ value: h, label: `${h} hour${h > 1 ? 's' : ''}`, hint: h === 24 ? 'recommended: most room to finish work' : undefined })), { value: 'custom', label: 'Custom' }] }));
@@ -208,9 +209,15 @@ async function main() {
 
   if (cmd === 'pick') {
     const cfg = loadConfig();
-    const ranked = rankProjects(await fetchProjects(host || cfg.host), cfg);
-    const target = typeof flagVal('project') === 'string' ? ranked.find((x) => x.slug === flagVal('project')) : ranked[0];
-    if (!target) { console.error('No matching project.'); process.exit(1); }
+    const all = await fetchProjects(host || cfg.host);
+    const ranked = rankProjects(all, cfg);
+    const want = typeof flagVal('project') === 'string' ? flagVal('project') : null;
+    const target = want ? ranked.find((x) => x.slug === want) : ranked[0];
+    if (!target) {
+      const named = want && (all.projects || []).find((x) => x.slug === want);
+      console.error(named?.automation === 'donor-signoff' ? `${named.name} requires a human review of every PR. Run setup and choose "I'll review each PR first" to work on it.` : 'No matching project.');
+      process.exit(1);
+    }
     const issues = await candidateIssues(target, { limit: Number(flags.limit) || 8 });
     if (json) return out({ project: { slug: target.slug, repo: target.repo, automation: target.automation, claim: target.claim }, issues, alternatives: ranked.slice(1, 4).map((x) => x.slug) });
     console.log(`${target.name} (${target.repo}) · ${(target.causes || []).join(', ')} · ${target.automation} · claim: ${target.claim?.rule}`);

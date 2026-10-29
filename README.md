@@ -39,7 +39,7 @@ Every PR made through TOA says "via TOA" in its AI disclosure and ends with a ro
 
 - **Nothing reports back to TOA.** The installer puts a skill file in your agent tools and keeps your preferences in `~/.toa` on your computer. Your agent reads the public project list; everything else happens between your machine and GitHub.
 - **It's your own usage, on your own machine.** TOA doesn't share, pool or resell anything. It only uses what's left before your reset. Check your provider's terms if you're unsure.
-- **Quality first.** The agent works help-wanted and bug issues only (never good-first-issues, which stay with human newcomers), follows each project's contribution and AI rules, adds tests, and has a separate agent with fresh context review the diff before any PR opens. Projects whose rules ask for a human review get a draft for your sign-off.
+- **Quality first.** The agent works help-wanted and bug issues only (never good-first-issues, which stay with human newcomers), follows each project's contribution and AI rules, adds tests, and has a separate agent with fresh context review the diff before any PR opens. Projects whose rules ask for a human review are only offered if you choose to review each PR yourself: you get a draft and a checklist, and you decide whether it goes out.
 - **Safe to run unattended.** The agent works in its own folder (`~/.toa/work`) with secrets stripped from its environment, and treats everything in a target repo as data, so instructions planted for bots are ignored and flagged to you.
 - **Nothing is lost.** Work in progress is pushed to your fork after every step and resumes in your next window.
 - **The credit is yours.** PRs come from your own GitHub account, with the AI disclosure each project asks for.
